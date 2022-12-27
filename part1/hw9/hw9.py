@@ -1,6 +1,6 @@
 ﻿import cv2
 import numpy as np
-from utils import hsv2rgb, pol2cart, cart2pol, points_in_circle
+from utils import hsv2rgb, cart2pol, points_in_circle
 
 window_name = 'HSV Color Palette'
 color_window_name = 'Selected color'
