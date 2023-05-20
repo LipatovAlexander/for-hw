@@ -14,6 +14,7 @@ cv2.namedWindow(ORIGINAL_WINDOW)
 cv2.namedWindow(OUTPUT_WINDOW)
 
 cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture('demo/dinner.mp4')
 
 while cap.isOpened():
     ret, bgr_image = cap.read()
@@ -34,8 +35,10 @@ while cap.isOpened():
 
         emotion_prediction = emotion_classifier.predict(face)
         emotion, emotion_probability = utils.get_emotion(emotion_prediction)
+        # print("EMOTION: {}, PROBABILITY: {}".format(emotion, emotion_probability))
 
-        utils.draw_emoji(rgb_image, face_coordinates, emotion)
+        utils.draw_emoji(rgb_image, face_coordinates,
+                         emotion, emotion_probability)
 
     bgr_image = cv2.cvtColor(rgb_image, cv2.COLOR_RGB2BGR)
     cv2.imshow(OUTPUT_WINDOW, bgr_image)
